@@ -13,7 +13,7 @@
 	<script defer>
 		console.log('true');
 		const video = document.getElementById('vid');
-		const master_url = 'http://localhost:4000/file/master.m3u8';
+		const master_url = 'http://localhost:4000/file/out/master.m3u8';
 		let hls = null;
 
 		if (Hls.isSupported()) {
@@ -22,7 +22,7 @@
 			hls.attachMedia(video);
 			hls.on(Hls.Events.MANIFEST_PARSED, function() {
     // Once the manifest is parsed, you can set the initial quality level if desired
-    hls.currentLevel = 2; // 0 corresponds to the highest quality level
+    hls.currentLevel = 0; // 0 corresponds to the highest quality level
 });
 		} else if (video.canPlayType('application/vnd.apple.mpegurl')) {
 			video.src = master_url;
