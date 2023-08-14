@@ -11,7 +11,7 @@ fi
 ffmpeg -i $1 \
 -filter_complex \
 "[0:v]split=4[v1][v2][v3][v4]; \
-[v1]copy[v1out]; [v2]scale=w=1280:h=720[v2out]; [v3]scale=w=854:h=480[v3out]; [v4]scale=w=640:h=360[v4out];" \
+[v1]copy[v1out]; [v2]scale=w=1280:h=720[v2out]; [v3]scale=w=854:h=480[v3out]; [v4]scale=w=640:h=360[v4out]" \
 -map "[v1out]" -c:v:0 libx264 -b:v:0 5M -maxrate:v:0 5M -minrate:v:0 5M -bufsize:v:0 10M -preset slow -g 48 -sc_threshold 0 -keyint_min 48 \
 -map "[v2out]" -c:v:1 libx264 -b:v:1 3M -maxrate:v:1 3M -minrate:v:1 3M -bufsize:v:1 3M -preset slow -g 48 -sc_threshold 0 -keyint_min 48 \
 -map "[v3out]" -c:v:2 libx264 -b:v:2 2M -maxrate:v:2 2M -minrate:v:2 2M -bufsize:v:2 2M -preset slow -g 48 -sc_threshold 0 -keyint_min 48 \
