@@ -28,27 +28,34 @@ echo $filename
 
 function matchResolution {
   res=$1
-  
-  case $res in
-    0)
-      echo "1080p"
-      ;;
-    1)
-      echo "720p"
-      ;;
-    2)
-      echo "480p"
-      ;;
-    3)
-      echo "360p"
-      ;;
-    *)
-      echo "1080p"
-      ;;
-  esac
+
+  if (($1 == 0)); then
+    echo "213dj"
+    return
+  else 
+    echo "1080p"  
+    return
+  fi  
+  # case $res in
+  #   '0')
+  #     echo "1080p"
+  #     ;;
+  #   '1')
+  #     echo "720p"
+  #     ;;
+  #   '2')
+  #     echo "480p"
+  #     ;;
+  #   '3')
+  #     echo "360p"
+  #     ;;
+  #   *)
+  #     echo "1080p_"
+  #     ;;
+  # esac
 }
 
-# resolution=$(matchResolution 0)
+# resolution=$(matchResolution 1)
 
 # echo $resolution
 
